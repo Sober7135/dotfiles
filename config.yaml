@@ -1,0 +1,13 @@
+CompileFlags:
+    Add:
+      [
+        -std=c++2a,
+        -Wall,
+        -Wextra,
+        -Werror,
+      ]
+  
+InlayHints:
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
