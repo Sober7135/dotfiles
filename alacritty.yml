@@ -37,9 +37,9 @@ window:
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
-  #position:
-  #  x: 0
-  #  y: 0
+  # position:
+  #  x: 10
+  #  y: 10
 
   # Window padding (changes require restart)
   #
@@ -67,9 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 1.0
-
-  # Startup Mode (changes require restart)
+  opacity: 0.9  
   #
   # Values for `startup_mode`:
   #   - Windowed
@@ -81,10 +79,10 @@ window:
   #startup_mode: Windowed
 
   # Window title
-  #title: Alacritty
+  # title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
-  #dynamic_title: true
+  # dynamic_title: true
 
   # Window class (Linux/BSD only):
   #class:
@@ -117,7 +115,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Iosevka Term SS04 Extrabold
+    family: Fira Code Medium
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -128,10 +126,10 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Iosevka Term SS04 Heavy
+    family: Fira Code
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Bold
 
   # Italic font face
   italic:
@@ -139,10 +137,10 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Iosevka Term SS04 XBdObl
+    family: Fira Code
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Italic
 
   # Bold italic font face
   bolditalic:
@@ -150,13 +148,13 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Iosevka Term SS04 HvObl
+    family: Fira Code
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Bold 
 
   # Point size
-  size: 12.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -178,9 +176,9 @@ font:
   # it is recommended to set `use_thin_strokes` to `false`.
   #use_thin_strokes: true
 
-# If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
 
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true 
 # Colors (Tomorrow Night)
 #colors:
   # Default colors
@@ -325,36 +323,35 @@ font:
   # regardless of their background color.
   #transparent_background_colors: false
 
-  
-# Colors (Material Theme)
+# Colors (Horizon Dark)
 colors:
-  # Default colors
+  # Primary colors
   primary:
-    background: '0x1e282d'
-    foreground: '0xc4c7d1'
+    background: '0x1c1e26'
+    foreground: '0xe0e0e0'
 
   # Normal colors
   normal:
-    black:   '0x666666'
-    red:     '0xeb606b'
-    green:   '0xc3e88d'
-    yellow:  '0xf7eb95'
-    blue:    '0x80cbc4'
-    magenta: '0xff2f90'
-    cyan:    '0xaeddff'
-    white:   '0xffffff'
+    black: '0x16161c'
+    red: '0xe95678'
+    green: '0x29d398'
+    yellow: '0xfab795'
+    blue: '0x26bbd9'
+    magenta: '0xee64ac'
+    cyan: '0x59e1e3'
+    white: '0xd5d8da'
 
   # Bright colors
   bright:
-    black:   '0xff262b'
-    red:     '0xeb606b'
-    green:   '0xc3e88d'
-    yellow:  '0xf7eb95'
-    blue:    '0x7dc6bf'
-    magenta: '0x6c71c4'
-    cyan:    '0x35434d'
-    white:   '0xffffff'
-
+    black: '0x5b5858'
+    red: '0xec6a88'
+    green: '0x3fdaa4'
+    yellow: '0xfbc3a7'
+    blue: '0x3fc4de'
+    magenta: '0xf075b5'
+    cyan: '0x6be4e6'
+    white: '0xd5d8da'
+  
 
 #bell:
   # Visual Bell Animation

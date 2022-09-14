@@ -1,12 +1,15 @@
 CompileFlags:
     Add:
       [
-        -std=c++2a,
+        # -std=c89,
+        # -stdlib=libc++,
+        # -std=c++2a,
         -Wall,
         -Wextra,
-        -Werror,
+        # -Werror,
       ]
-  
+    Compiler: clang
+ 
 InlayHints:
   Enabled: Yes
   ParameterNames: Yes
