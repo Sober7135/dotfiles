@@ -1,9 +1,9 @@
 CompileFlags:
     Add:
       [
-        # -std=c89,
+        # -std=c99,
         # -stdlib=libc++,
-        # -std=c++2a,
+        # -std=c++2a
         -Wall,
         -Wextra,
         # -Werror,

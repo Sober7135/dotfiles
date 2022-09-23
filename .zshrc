@@ -23,11 +23,15 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 
 
+export ZVM_VI_ESCAPE_BINDKEY="jj"
+export ZVM_CURSOR_STYLE_ENABLED=false
+
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/autojump/autojump.zsh
 source /usr/share/fzf/completion.zsh
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 alias ra="ranger"
 alias ls="ls --color"
@@ -41,9 +45,13 @@ alias ip="ip -c"
 alias v="nvim "
 alias sudo="sudo "
 alias ..="cd .."
+alias fzf="find . | fzf"
+alias s="startx"
 
 alias proxy="export all_proxy=http://127.0.0.1:20171"
 alias unproxy="unset all_proxy"
+
+export PATH="$PATH:$HOME/.local/bin/scripts"
 
 # set default editor for ranger
 export VISUAL=nvim
