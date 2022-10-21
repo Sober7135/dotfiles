@@ -1,16 +1,33 @@
 CompileFlags:
-    Add:
-      [
-        # -std=c99,
-        # -stdlib=libc++,
-        # -std=c++2a
+    Add: [
         -Wall,
         -Wextra,
         # -Werror,
       ]
-    Compiler: clang
  
 InlayHints:
   Enabled: Yes
   ParameterNames: Yes
   DeducedTypes: Yes
+
+Diagnostics:
+  UnusedIncludes: Strict
+
+---
+
+If:
+  PathExclude: [.*\.c, .*\.h]
+CompileFlags:
+  Add: [
+      # -std=c++2a,
+      # -stdlib=libc++,
+    ]
+
+---
+
+If:
+  PathExclude: [.*\.cc, .*\.cpp, .*\.hpp]
+CompileFlags:
+  Add: [
+    -std=c89,
+  ]
