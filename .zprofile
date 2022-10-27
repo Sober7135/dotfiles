@@ -1,3 +1,3 @@
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 3 ]; then
-  exec startx
-fi
+# if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -le 3 ]; then
+#   startx
+# fi

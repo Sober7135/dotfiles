@@ -3,7 +3,7 @@
 #                                             
 capacity="$(cat /sys/class/power_supply/BAT0/capacity)"
 # charging
-if [ $(cat /sys/class/power_supply/BAT0/status) == Charging ]; then
+if [ "$(cat /sys/class/power_supply/BAT0/status)" == "Charging" ]; then
   echo $capacity && exit
 fi
 
