@@ -1,33 +1,52 @@
 CompileFlags:
     Add: [
-        -Wall,
-        -Wextra,
+          -Wall,
+          -Wextra,
+          -fsanitize=undefined,
         # -Werror,
-      ]
+    ]
  
 InlayHints:
-  Enabled: Yes
-  ParameterNames: Yes
-  DeducedTypes: Yes
+    Enabled: Yes
+    ParameterNames: Yes
+    DeducedTypes: Yes
 
 Diagnostics:
-  UnusedIncludes: Strict
+    UnusedIncludes: Strict
+    ClangTidy:
+        Add: [
+            clang-analyzer-*, 
+            concurrency-*, 
+            # misc-*, 
+            performance-*,
+            portability-*,
+            # readability-*
+        ]
 
 ---
 
 If:
-  PathExclude: [.*\.c, .*\.h]
+    PathMatch: [.*\.cc, .*\.hh, .*\.hpp, .*\.cpp]
 CompileFlags:
-  Add: [
-      # -std=c++2a,
-      # -stdlib=libc++,
+    Add: [
+        -std=c++2a,
+        # -stdlib=libc++,
     ]
+Diagnostics:
+    ClangTidy:
+        Add: [
+            boost-*, 
+            cppcoreguidelines-*, 
+            hicpp-*, 
+            modernize-*, 
+        ]
+
 
 ---
 
 If:
-  PathExclude: [.*\.cc, .*\.cpp, .*\.hpp]
+    PathMatch: [.*\.c]
 CompileFlags:
-  Add: [
-    -std=c89,
-  ]
+    Add: [
+        -std=c99,
+    ]

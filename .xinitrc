@@ -2,6 +2,7 @@ nitrogen --restore &
 picom &
 fcitx5 &
 flameshot &
+setxkbmap -device 3 -option ctrl:nocaps&
 xrandr --output DisplayPort-0 --primary --above eDP
 export _JAVA_AWT_WM_NONREPARENTING=1
 export WINIT_X11_SCALE_FACTOR=1.66
