@@ -13,15 +13,15 @@ InlayHints:
 
 Diagnostics:
     UnusedIncludes: Strict
-    ClangTidy:
-        Add: [
-            clang-analyzer-*, 
-            concurrency-*, 
-            # misc-*, 
-            performance-*,
-            portability-*,
-            # readability-*
-        ]
+      #ClangTidy:
+      #    Add: [
+      #        clang-analyzer-*, 
+      #        concurrency-*, 
+      #        # misc-*, 
+      #        performance-*,
+      #        portability-*,
+      #        # readability-*
+      #    ]
 
 ---
 
@@ -33,13 +33,13 @@ CompileFlags:
         # -stdlib=libc++,
     ]
 Diagnostics:
-    ClangTidy:
-        Add: [
-            boost-*, 
-            cppcoreguidelines-*, 
-            hicpp-*, 
-            modernize-*, 
-        ]
+  #    ClangTidy:
+  #        Add: [
+  #            boost-*, 
+  #            cppcoreguidelines-*, 
+  #            hicpp-*, 
+  #            modernize-*, 
+  #        ]
 
 
 ---

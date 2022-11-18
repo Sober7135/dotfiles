@@ -68,10 +68,7 @@ alias gpl="git pull"
 alias proxy="export all_proxy=http://127.0.0.1:20171"
 alias unproxy="unset all_proxy"
 
-export PATH="$PATH:$HOME/.local/bin/scripts:$(go env GOPATH)/bin"
-export PATH="$PATH:$HOME/.ghcup/bin"
-
-export WIN_HOME="/mnt/win/Users/sober"
+export PATH="$PATH:$HOME/.local/bin/scripts:$(go env GOPATH)/bin:$HOME/.ghcup/bin:$HOME/.local/bin"
 
 # set default editor for ranger
 export VISUAL=nvim
