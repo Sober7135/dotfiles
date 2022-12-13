@@ -32,7 +32,7 @@ CompileFlags:
         -std=c++2a,
         # -stdlib=libc++,
     ]
-Diagnostics:
+#Diagnostics:
   #    ClangTidy:
   #        Add: [
   #            boost-*, 
@@ -45,8 +45,8 @@ Diagnostics:
 ---
 
 If:
-    PathMatch: [.*\.c]
+    PathMatch: [.*\.c, .*\.h]
 CompileFlags:
     Add: [
-        -std=c99,
+        -std=c11,
     ]

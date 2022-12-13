@@ -129,7 +129,7 @@ font:
     family: Iosevka Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Semibold
+    style: Extrabold
 
   # Italic font face
   italic:
@@ -140,7 +140,7 @@ font:
     family: Iosevka Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Medium Oblique
+    style: Medium Italic
 
   # Bold italic font face
   bolditalic:
@@ -151,7 +151,7 @@ font:
     family: Iosevka Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Heavy Oblique
+    style: Extrabold Italic
 
   # Point size
   size: 10.0

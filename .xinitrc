@@ -3,7 +3,8 @@ picom &
 fcitx5 &
 flameshot &
 setxkbmap -device 3 -option ctrl:nocaps&
-xrandr --output DisplayPort-0 --primary --above eDP
+# xrandr --output DisplayPort-0 --primary --above eDP --auto
+xrandr --output HDMI-A-0 --primary --auto --above eDP --auto
 export _JAVA_AWT_WM_NONREPARENTING=1
 export WINIT_X11_SCALE_FACTOR=1.66
 xsetroot -cursor_name left_ptr &
