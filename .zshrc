@@ -1,15 +1,18 @@
+# https://stackoverflow.com/questions/64276163/dismiss-zsh-completion-list-after-typing-a-character
+setopt menucomplete
+setopt inc_append_history
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+export EDITOR="nvim --noplugin"
 
+source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.zsh/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# export all_proxy="127.0.0.1:20172"
+export CHROOT=/mnt/chroot
+export GOPROXY=https://goproxy.io,direct
 
 # The following lines were added by compinstall
-
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' glob unset
 zstyle ':completion:*' list-colors ''
@@ -23,59 +26,67 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
 
-export ZVM_VI_ESCAPE_BINDKEY="jj"
-export ZVM_CURSOR_STYLE_ENABLED=false
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/autojump/autojump.zsh
-source /usr/share/fzf/completion.zsh
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
-alias ra="ranger"
 alias ls="ls --color"
-alias n="neofetch"
+alias f="fastfetch"
 alias la="ls --color -a"
-alias cl="clear"
+alias clear="printf '\33c\e[3J'"
+alias cl="printf '\33c\e[3J'"
 alias mv="mv -v"
 alias cp="cp -v"
 alias rm="rm -v"
-alias ip="ip -c"
-alias v="nvim "
+alias nv="nvim "
 alias vi="nvim --noplugin"
 alias sudo="sudo "
-alias ..="cd .."
 alias fzf="find . | fzf"
-alias s="startx"
-alias c="code"
+alias gs="git status -u"
+alias aria2c="aria2c -x10"
+alias m="make"
+alias code="code --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto"
+alias dockerx="docker"
+# alias code="code --enable-features=WaylandWindowDecorations"
+alias grep="grep --color"
+alias cbb="cmake --build build"
 
-# git 
-alias gs="git status"
-alias gaa="git add ."
-alias ga="git add"
-alias gc="git commit"
-alias gd="git diff"
-alias gps="git push"
-alias gpl="git pull"
+function cf() {
+	cd "$(find . -type d | fzf )"
+}
 
-alias proxy="export all_proxy=http://127.0.0.1:20171"
-alias unproxy="unset all_proxy"
+function chr() {
+  [ "$1" -lt 256 ] || return 1
+  printf "\\$(printf '%03o' "$1")"
+}
 
-export PATH="$PATH:$HOME/.local/bin/scripts:$(go env GOPATH)/bin:$HOME/.ghcup/bin:$HOME/.local/bin"
+function ord() {
+  LC_CTYPE=C printf '%d' "'$1"
+}
 
-# set default editor for ranger
-export VISUAL=nvim
-export EDITOR=nvim
+function dec2hex() {
+	LC_CTYPE=C printf '0x%x' "$1"
+}
 
-# For alacritty, make the font size same on different screens.
-export WINIT_X11_SCALE_FACTOR=1.66
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+function hex2dec() {
+	printf '%d' "$1"
+}
+
+export ZVM_VI_ESCAPE_BINDKEY="jj"
+export ZVM_CURSOR_STYLE_ENABLED=false
+
+
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="/opt/llvm/bin/:$PATH"
+
+typeset -U PATH
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+export GPG_TTY=$(tty)
